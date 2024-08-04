@@ -1,2 +1,2 @@
 # observability
-Testing observability on interaction between spring boot, gateway, camunda engine, etc
+Testing observability on interaction between Spring Boot, Cloud Gateway, Camunda Engine, etc
