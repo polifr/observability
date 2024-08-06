@@ -1,0 +1,25 @@
+name: observability
+
+services:
+  obs-redis:
+    image: redis:7
+    container_name: "obs-redis"
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+
+  obs-gateway:
+    restart: no
+    container_name: "obs-gateway"
+    # TODO
+
+  obs-application:
+    restart: no
+    container_name: "obs-application"
+    # TODO
+
+  obs-engine:
+    restart: no
+    container_name: "obs-engine"
+    # TODO
