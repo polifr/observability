@@ -8,18 +8,36 @@ services:
       - 6379:6379
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+    networks:
+      - obs-network
 
   obs-gateway:
     restart: no
     container_name: "obs-gateway"
+    ports:
+      - 8080:8080
     # TODO
+    networks:
+      - obs-network
 
   obs-application:
     restart: no
     container_name: "obs-application"
+    ports:
+      - 8081:8081
     # TODO
+    networks:
+      - obs-network
 
   obs-engine:
     restart: no
     container_name: "obs-engine"
+    ports:
+      - 8082:8082
     # TODO
+    networks:
+      - obs-network
+
+networks:
+  obs-network:
+    driver: bridge
